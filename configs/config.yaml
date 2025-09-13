@@ -1,0 +1,74 @@
+# Experiment settings
+experiment:
+  name: "math_ocr_baseline"
+  version: "v1.0"
+  seed: 42
+
+# Data settings
+data:
+  base_path: "./data"
+  datasets:
+    crohme:
+      path: "./data/raw/crohme"
+      train_split: 0.8
+      val_split: 0.1
+      test_split: 0.1
+      enabled: true
+    mathwriting:
+      path: "./data/raw/mathwriting" 
+      enabled: false
+    hme100k:
+      path: "./data/raw/hme100k"
+      enabled: false
+
+# Model settings
+model:
+  architecture: "cnn_transformer"
+  encoder:
+    backbone: "resnet34"
+    pretrained: true
+    freeze_backbone: false
+  decoder:
+    hidden_dim: 512
+    num_layers: 6
+    num_heads: 8
+    dropout: 0.1
+  vocab_size: 256  # Will be updated automatically
+  max_seq_length: 512
+
+# Training settings
+training:
+  batch_size: 16  # Start small for testing
+  num_epochs: 50
+  learning_rate: 1e-3
+  weight_decay: 1e-4
+  grad_clip: 1.0
+  early_stopping_patience: 5
+  
+# Optimization
+optimizer:
+  name: "adam"
+  betas: [0.9, 0.999]
+  
+scheduler:
+  name: "step_lr"
+  step_size: 20
+  gamma: 0.5
+
+# Hardware
+device: "auto"  # auto, cpu, cuda
+mixed_precision: true
+num_workers: 2  # Adjust based on your CPU
+
+# Logging
+logging:
+  use_wandb: false  # Set to true when you're ready
+  project: "math_ocr"
+  log_every: 100
+  save_every: 5
+  
+# Paths
+paths:
+  output_dir: "./outputs"
+  model_dir: "./outputs/models"
+  log_dir: "./outputs/logs"

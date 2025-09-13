@@ -1,0 +1,5 @@
+http://www.iapr-tc11.org/mediawiki/index.php/CROHME:_Competition_on_Recognition_of_Online_Handwritten_Mathematical_Expressions
+https://arxiv.org/abs/2404.
+https://github.com/Phymond/HME100K
+https://tc11.cvc.uab.es/datasets/Dset_Mix_1
+https://www.kaggle.com/datasets/aidapearson/ocr-data
