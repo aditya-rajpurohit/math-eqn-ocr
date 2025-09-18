@@ -283,7 +283,7 @@ def get_dataloaders(cfg):
         data_path=data_path,
         vocab=vocab,
         phase='train',  # Will split later
-        img_size=(cfg.model.get('img_size', [224, 224])),
+        img_size=(224, 224),
         max_seq_len=cfg.model.max_seq_length
     )
     
