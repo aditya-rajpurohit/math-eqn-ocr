@@ -193,7 +193,10 @@ class CROHMEDataset(Dataset):
             
             # Draw stroke
             for i in range(len(points) - 1):
-                cv2.line(img, tuple(points[i]), tuple(points[i + 1]), (0, 0, 0), thickness=2)
+                # cv2.line(img, tuple(points[i]), tuple(points[i + 1]), (0, 0, 0), thickness=2)
+                pt1 = (int(points[i][0]), int(points[i][1]))
+                pt2 = (int(points[i + 1][0]), int(points[i + 1][1]))
+                cv2.line(img, pt1, pt2, (0, 0, 0), thickness=2)
         
         return Image.fromarray(img)
     
